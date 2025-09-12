@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { FaRupeeSign } from "react-icons/fa";
 
 const FilterSidebar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -16,9 +17,9 @@ const FilterSidebar = () => {
         maxPrice: 100,
     });
 
-    const [priceRange, setPriceRange] = useState([0, 100]);
+    const [priceRange, setPriceRange] = useState([100, 2000]);
 
-    const categories = ["Top wear", "Bottom Wear"];
+    const categories = ["Top Wear", "Bottom Wear"];
 
     const colors = ["Red", "Blue",
         "Black",
@@ -62,10 +63,10 @@ const FilterSidebar = () => {
             size: params.size ? params.size.split(",") : [],
             material: params.material ? params.material.split(",") : [],
             brand: params.brand ? params.brand.split(",") : [],
-            minPrice: params.minPrice || 0,
-            maxPrice: params.maxPrice || 100,
+            minPrice: params.minPrice || 100,
+            maxPrice: params.maxPrice || 2000,
         });
-        setPriceRange([0, params.maxPrice || 100]);
+        setPriceRange([0, params.maxPrice || 2000]);
     }, [searchParams]);
 
     const handleFilterChange = (e) => {
@@ -102,7 +103,7 @@ const FilterSidebar = () => {
     const handlePricechange = (e) => {
         const newPrice = e.target.value;
         setPriceRange([0, newPrice]);
-        const newFilters = {...filters, minPrice: 0, maxPrice: newPrice};
+        const newFilters = {...filters, minPrice: 100, maxPrice: newPrice};
         setFilters(filters);
         updateURLParams(newFilters);
     }
@@ -224,14 +225,14 @@ const FilterSidebar = () => {
                 <label className="block text-gray-600 font-medium mb-2">Price Range</label>
                 <input type="range" 
                 name="priceRange"
-                min={0}
-                max={100}
+                min={100}
+                max={2000}
                 value={priceRange[1]}
                 onChange={handlePricechange}
                 className='w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer' />
                 <div className='flex justify-between text-gray-600 mt-2'>
-                    <span>$0</span>
-                    <span>${priceRange[1]}</span>
+                    <span><FaRupeeSign className="inline text-gray-700" />100</span>
+                    <span><FaRupeeSign className="inline text-gray-700" />{priceRange[1]}</span>
                 </div>
             </div>
 

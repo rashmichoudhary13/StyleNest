@@ -5,24 +5,23 @@ const productData = [
     name: "Classic Oxford Button-Down Shirt",
     description:
       "This classic Oxford shirt is tailored for a polished yet casual look. Crafted from high-quality cotton, it features a button-down collar and a comfortable, slightly relaxed fit. Perfect for both formal and casual occasions, it comes with long sleeves, a button placket, and a yoke at the back. The shirt is finished with a gently rounded hem and adjustable button cuffs.",
-    price: 39.99,
-    discountPrice: 34.99,
+    price: 1999,
     countInStock: 20,
     sku: "OX-SH-001",
     category: "Top Wear",
     brand: "Urban Threads",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["Red", "Blue", "Yellow"],
+    colors: ["Green", "Blue", "Yellow"],
     collections: "Business Casual",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=39",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755837120/-473Wx593H-410456582-atg-MODEL_xnymhu.avif",
         altText: "Classic Oxford Button-Down Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=40",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838678/-473Wx593H-410456582-atg-MODEL2_cvrd9x.avif",
         altText: "Classic Oxford Button-Down Shirt Back View",
       },
     ],
@@ -33,24 +32,23 @@ const productData = [
     name: "Slim-Fit Stretch Shirt",
     description:
       "A versatile slim-fit shirt perfect for business or evening events. Designed with a fitted silhouette, the added stretch provides maximum comfort throughout the day. Features a crisp turn-down collar, button placket, and adjustable cuffs.",
-    price: 29.99,
-    discountPrice: 24.99,
+    price: 750,
     countInStock: 35,
     sku: "SLIM-SH-002",
     category: "Top Wear",
     brand: "Modern Fit",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Black", "Navy Blue", "Burgundy"],
+    colors: ["Navy Blue", "Black", "Burgundy"],
     collections: "Formal Wear",
     material: "Cotton Blend",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=41",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838700/s7-1492983_alternate10_vcd3lj.jpg",
         altText: "Slim-Fit Stretch Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=42",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838727/s7-1492988_alternate10_xvpqjw.jpg",
         altText: "Slim-Fit Stretch Shirt Back View",
       },
     ],
@@ -61,8 +59,7 @@ const productData = [
     name: "Casual Denim Shirt",
     description:
       "This casual denim shirt is made from lightweight cotton denim. It features a regular fit, snap buttons, and a straight hem. With Western-inspired details, this shirt is perfect for layering or wearing solo.",
-    price: 49.99,
-    discountPrice: 44.99,
+    price: 800,
     countInStock: 15,
     sku: "CAS-DEN-003",
     category: "Top Wear",
@@ -74,11 +71,11 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=43",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838747/41LQNDu4r3L_zdbfhu.jpg",
         altText: "Casual Denim Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=44",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838786/416mHea-SSL_vjpkry.jpg",
         altText: "Casual Denim Shirt Back View",
       },
     ],
@@ -89,8 +86,7 @@ const productData = [
     name: "Printed Resort Shirt",
     description:
       "Designed for summer, this printed resort shirt is perfect for vacation or weekend getaways. It features a relaxed fit, short sleeves, and a camp collar. The all-over tropical print adds a playful vibe.",
-    price: 29.99,
-    discountPrice: 22.99,
+    price: 340,
     countInStock: 25,
     sku: "PRNT-RES-004",
     category: "Top Wear",
@@ -102,11 +98,15 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=45",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838823/RFSH-39973-A_1_ifb6eh.jpg",
         altText: "Printed Resort Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=1",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838841/RFSH-39973-A_2_xfsdn2.jpg",
+        altText: "Printed Resort Shirt Back View",
+      },
+      {
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838859/RFSH-39973-A_5_casloj.jpg",
         altText: "Printed Resort Shirt Back View",
       },
     ],
@@ -117,8 +117,7 @@ const productData = [
     name: "Slim-Fit Easy-Iron Shirt",
     description:
       "A slim-fit, easy-iron shirt in woven cotton fabric with a fitted silhouette. Features a turn-down collar, classic button placket, and a yoke at the back. Long sleeves and adjustable button cuffs with a rounded hem.",
-    price: 34.99,
-    discountPrice: 29.99,
+    price: 550,
     countInStock: 30,
     sku: "SLIM-EIR-005",
     category: "Top Wear",
@@ -130,11 +129,11 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://source.unsplash.com/random/?clothes",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838878/LAK6642copy_w7auwg.jpg",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
       {
-        url: "https://source.unsplash.com/random/?clothes",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838900/LAK6650copy_m49ata.jpg",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
     ],
@@ -145,8 +144,7 @@ const productData = [
     name: "Polo T-Shirt with Ribbed Collar",
     description:
       "A wardrobe classic, this polo t-shirt features a ribbed collar and cuffs. Made from 100% cotton, it offers breathability and comfort throughout the day. Tailored in a slim fit with a button placket at the neckline.",
-    price: 24.99,
-    discountPrice: 19.99,
+    price: 357,
     countInStock: 50,
     sku: "POLO-TSH-006",
     category: "Top Wear",
@@ -158,11 +156,11 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://source.unsplash.com/random/?clothes",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838920/-473Wx593H-441635453-brown-MODEL_p6odkw.avif",
         altText: "Polo T-Shirt Front View",
       },
       {
-        url: "https://source.unsplash.com/random/?clothes",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838937/-473Wx593H-441635453-brown-MODEL3_kim1ov.avif",
         altText: "Polo T-Shirt Back View",
       },
     ],
@@ -173,8 +171,7 @@ const productData = [
     name: "Oversized Graphic T-Shirt",
     description:
       "An oversized graphic t-shirt that combines comfort with street style. Featuring bold prints across the chest, this relaxed fit tee offers a modern vibe, perfect for pairing with jeans or joggers.",
-    price: 19.99,
-    discountPrice: 15.99,
+    price: 549,
     countInStock: 40,
     sku: "OVS-GRF-007",
     category: "Top Wear",
@@ -186,7 +183,11 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=5",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838955/ai_creative_0000_Layer_6_mwonhe.jpg",
+        altText: "Oversized Graphic T-Shirt Front View",
+      },
+      {
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755838970/06_5_jkkcrl.jpg",
         altText: "Oversized Graphic T-Shirt Front View",
       },
     ],
@@ -197,8 +198,7 @@ const productData = [
     name: "Regular-Fit Henley Shirt",
     description:
       "A modern take on the classic Henley shirt, this regular-fit style features a buttoned placket and ribbed cuffs. Made from a soft cotton blend with a touch of elastane for stretch.",
-    price: 22.99,
-    discountPrice: 18.99,
+    price: 700,
     countInStock: 35,
     sku: "REG-HEN-008",
     category: "Top Wear",
@@ -210,7 +210,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=6",
+        url: "https://images-cdn.ubuy.co.in/66384830c76f702db475e6d2-mens-henley-shirts-long-sleeve-regualar.jpg",
         altText: "Regular-Fit Henley Shirt Front View",
       },
     ],
@@ -221,8 +221,7 @@ const productData = [
     name: "Long-Sleeve Thermal Tee",
     description:
       "Stay warm with this long-sleeve thermal tee, made from soft cotton with a waffle-knit texture. Ideal for layering in cooler months, the slim-fit design ensures a snug yet comfortable fit.",
-    price: 27.99,
-    discountPrice: 22.99,
+    price: 650,
     countInStock: 20,
     sku: "LST-THR-009",
     category: "Top Wear",
@@ -234,7 +233,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=7",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755839171/1000014564140-Black-BLACK-1000014564140_01-2100_pba43h.jpg",
         altText: "Long-Sleeve Thermal Tee Front View",
       },
     ],
@@ -245,8 +244,7 @@ const productData = [
     name: "V-Neck Classic T-Shirt",
     description:
       "A classic V-neck t-shirt for everyday wear. This regular-fit tee is made from breathable cotton and features a clean, simple design with a flattering V-neckline. Lightweight fabric and soft texture make it perfect for casual looks.",
-    price: 14.99,
-    discountPrice: 11.99,
+    price: 600,
     countInStock: 60,
     sku: "VNECK-CLS-010",
     category: "Top Wear",
@@ -258,7 +256,11 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=8",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755839524/eng_pl_BASIC-mens-classic-cotton-T-shirt-with-a-serape-neckline-blue-V20-OM-TSBS-0145-126106_1_pufeir.webp",
+        altText: "V-Neck Classic T-Shirt Front View",
+      },
+      {
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755839560/eng_pl_BASIC-mens-classic-cotton-T-shirt-with-a-serape-neckline-blue-V20-OM-TSBS-0145-126106_3_qzun1k.webp",
         altText: "V-Neck Classic T-Shirt Front View",
       },
     ],
@@ -269,8 +271,7 @@ const productData = [
     name: "Slim Fit Joggers",
     description:
       "Slim-fit joggers with an elasticated drawstring waist. Features ribbed hems and side pockets. Ideal for casual outings or workouts.",
-    price: 40,
-    discountPrice: 35,
+    price: 1599,
     countInStock: 20,
     sku: "BW-001",
     category: "Bottom Wear",
@@ -282,7 +283,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=9",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755839673/hpsjogger-wgrey-1_t1y4mb.jpg",
         altText: "Slim Fit Joggers Front View",
       },
     ],
@@ -293,8 +294,7 @@ const productData = [
     name: "Cargo Joggers",
     description:
       "Relaxed-fit cargo joggers featuring multiple pockets for functionality. Drawstring waist and cuffed hems for a modern look.",
-    price: 45,
-    discountPrice: 40,
+    price: 1500,
     countInStock: 15,
     sku: "BW-002",
     category: "Bottom Wear",
@@ -306,7 +306,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=10",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755839743/1022-RPCRGJG01-08_1_l6rmby.jpg",
         altText: "Cargo Joggers Front View",
       },
     ],
@@ -317,8 +317,7 @@ const productData = [
     name: "Tapered Sweatpants",
     description:
       "Tapered sweatpants designed for comfort. Elastic waistband with adjustable drawstring, perfect for lounging or athletic activities.",
-    price: 35,
-    discountPrice: 30,
+    price: 599,
     countInStock: 25,
     sku: "BW-003",
     category: "Bottom Wear",
@@ -330,7 +329,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=11",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755839796/71q8aBTtUJL._SY879__hhce8m.jpg",
         altText: "Tapered Sweatpants Front View",
       },
     ],
@@ -341,8 +340,7 @@ const productData = [
     name: "Denim Jeans",
     description:
       "Classic slim-fit denim jeans with a slight stretch for comfort. Features a zip fly and five-pocket styling for a timeless look.",
-    price: 60,
-    discountPrice: 50,
+    price: 1399,
     countInStock: 30,
     sku: "BW-004",
     category: "Bottom Wear",
@@ -354,7 +352,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=12",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755839885/IMG_7019_ivquz9.jpg",
         altText: "Denim Jeans Front View",
       },
     ],
@@ -365,8 +363,7 @@ const productData = [
     name: "Chino Pants",
     description:
       "Slim-fit chino pants made from stretch cotton twill. Features a button closure and front and back pockets. Ideal for both casual and semi-formal wear.",
-    price: 55,
-    discountPrice: 48,
+    price: 2699,
     countInStock: 40,
     sku: "BW-005",
     category: "Bottom Wear",
@@ -378,7 +375,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=13",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755839966/156337804_g1_83fff69e-b5d2-4dd8-a53c-d4996bfab8d2_gwe804.jpg",
         altText: "Chino Pants Front View",
       },
     ],
@@ -389,8 +386,7 @@ const productData = [
     name: "Track Pants",
     description:
       "Comfortable track pants with an elasticated waistband and tapered leg. Features side stripes for a sporty look. Ideal for athletic and casual wear.",
-    price: 40,
-    discountPrice: 35,
+    price: 227,
     countInStock: 20,
     sku: "BW-006",
     category: "Bottom Wear",
@@ -402,7 +398,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=14",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840099/-473Wx593H-441139592-jetblack-MODEL_a89vqd.avif",
         altText: "Track Pants Front View",
       },
     ],
@@ -413,8 +409,7 @@ const productData = [
     name: "Slim Fit Trousers",
     description:
       "Tailored slim-fit trousers with belt loops and a hook-and-eye closure. Suitable for formal occasions or smart-casual wear.",
-    price: 65,
-    discountPrice: 55,
+    price: 500,
     countInStock: 15,
     sku: "BW-007",
     category: "Bottom Wear",
@@ -426,7 +421,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=15",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840194/411YDkwb1yL._SY879__wztix1.jpg",
         altText: "Slim Fit Trousers Front View",
       },
     ],
@@ -437,8 +432,7 @@ const productData = [
     name: "Cargo Pants",
     description:
       "Loose-fit cargo pants with multiple utility pockets. Features adjustable ankle cuffs and a drawstring waist for versatility and comfort.",
-    price: 50,
-    discountPrice: 45,
+    price: 850,
     countInStock: 25,
     sku: "BW-008",
     category: "Bottom Wear",
@@ -450,7 +444,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=16",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840242/-473Wx593H-700873234-khaki-MODEL_dxj5v0.avif",
         altText: "Cargo Pants Front View",
       },
     ],
@@ -461,8 +455,7 @@ const productData = [
     name: "Relaxed Fit Sweatpants",
     description:
       "Relaxed-fit sweatpants made from soft fleece fabric. Features an elastic waist and adjustable drawstring for a custom fit.",
-    price: 35,
-    discountPrice: 30,
+    price: 500,
     countInStock: 35,
     sku: "BW-009",
     category: "Bottom Wear",
@@ -474,7 +467,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=17",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840288/51Po3_kplUL._SX679__fc79cj.jpg",
         altText: "Relaxed Fit Sweatpants Front View",
       },
     ],
@@ -485,8 +478,7 @@ const productData = [
     name: "Formal Dress Pants",
     description:
       "Classic formal dress pants with a slim fit. Made from lightweight, wrinkle-resistant fabric for a polished look at the office or formal events.",
-    price: 70,
-    discountPrice: 60,
+    price: 295,
     countInStock: 20,
     sku: "BW-010",
     category: "Bottom Wear",
@@ -498,7 +490,7 @@ const productData = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=18",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840342/iqwys_512_z9grk7.avif",
         altText: "Formal Dress Pants Front View",
       },
     ],
@@ -509,8 +501,7 @@ const productData = [
     name: "High-Waist Skinny Jeans",
     description:
       "High-waist skinny jeans in stretch denim with a button and zip fly. Features a flattering fit that hugs your curves and enhances your silhouette.",
-    price: 50,
-    discountPrice: 45,
+    price: 826,
     countInStock: 30,
     sku: "BW-W-001",
     category: "Bottom Wear",
@@ -522,7 +513,11 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=19",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840420/-473Wx593H-463243570-navy-MODEL_ss2akk.avif",
+        altText: "High-Waist Skinny Jeans",
+      },
+      {
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840432/-473Wx593H-463243570-navy-MODEL3_eyac0o.avif",
         altText: "High-Waist Skinny Jeans",
       },
     ],
@@ -533,8 +528,7 @@ const productData = [
     name: "Wide-Leg Trousers",
     description:
       "Flowy, wide-leg trousers with a high waist and side pockets. Perfect for an elegant look that combines comfort and style.",
-    price: 60,
-    discountPrice: 55,
+    price: 2999,
     countInStock: 25,
     sku: "BW-W-002",
     category: "Bottom Wear",
@@ -546,7 +540,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=20",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840485/-473Wx593H-467277403-grey-MODEL_bacxjx.avif",
         altText: "Wide-Leg Trousers Front View",
       },
     ],
@@ -557,8 +551,7 @@ const productData = [
     name: "Stretch Leggings",
     description:
       "Soft, stretch leggings in a high-rise style. Perfect for lounging, working out, or casual wear, with a smooth fit that flatters your body.",
-    price: 25,
-    discountPrice: 20,
+    price: 300,
     countInStock: 40,
     sku: "BW-W-003",
     category: "Bottom Wear",
@@ -570,7 +563,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=21",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840562/669913b79e133f705044e8f9-stretch-is-comfort-girl-s-oh-so-soft_gmds3t.jpg",
         altText: "Stretch Leggings Front View",
       },
     ],
@@ -581,8 +574,7 @@ const productData = [
     name: "Pleated Midi Skirt",
     description:
       "Elegant pleated midi skirt with a high waistband and soft fabric that drapes beautifully. Ideal for both formal and casual occasions.",
-    price: 55,
-    discountPrice: 50,
+    price: 318,
     countInStock: 20,
     sku: "BW-W-004",
     category: "Bottom Wear",
@@ -594,7 +586,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=22",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840656/jb2ao_512_doz6yi.avif",
         altText: "Pleated Midi Skirt Front View",
       },
     ],
@@ -605,8 +597,7 @@ const productData = [
     name: "Flared Palazzo Pants",
     description:
       "High-waist palazzo pants with a loose, flowing fit. Comfortable and stylish, making them perfect for casual outings or beach days.",
-    price: 45,
-    discountPrice: 40,
+    price: 499,
     countInStock: 35,
     sku: "BW-W-005",
     category: "Bottom Wear",
@@ -618,7 +609,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=23",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755840725/41degXtAhFL._SY741__jwx5mk.jpg",
         altText: "Flared Palazzo Pants Front View",
       },
     ],
@@ -629,8 +620,7 @@ const productData = [
     name: "High-Rise Joggers",
     description:
       "Comfortable high-rise joggers with an elastic waistband and drawstring for a perfect fit. Great for lounging or working out.",
-    price: 40,
-    discountPrice: 35,
+    price: 490,
     countInStock: 30,
     sku: "BW-W-006",
     category: "Bottom Wear",
@@ -642,7 +632,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=24",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755867542/-473Wx593H-467081007-blue-MODEL_r6zjut.avif",
         altText: "High-Rise Joggers Front View",
       },
     ],
@@ -653,8 +643,7 @@ const productData = [
     name: "Paperbag Waist Shorts",
     description:
       "Stylish paperbag waist shorts with a belted waist and wide legs. Perfect for summer outings and keeping cool in style.",
-    price: 35,
-    discountPrice: 30,
+    price: 999,
     countInStock: 20,
     sku: "BW-W-007",
     category: "Bottom Wear",
@@ -666,7 +655,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=25",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755867496/8149641_1392796_ppkhub.jpg",
         altText: "Paperbag Waist Shorts Front View",
       },
     ],
@@ -677,8 +666,7 @@ const productData = [
     name: "Stretch Denim Shorts",
     description:
       "Comfortable stretch denim shorts with a high-waisted fit and raw hem. Perfect for pairing with your favorite tops during warmer months.",
-    price: 40,
-    discountPrice: 35,
+    price: 500,
     countInStock: 25,
     sku: "BW-W-008",
     category: "Bottom Wear",
@@ -690,7 +678,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=26",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755867396/63f27c99fbefee25ae041553-sanmm-womens-casual-stretch-jean-shorts_tgi0ew.jpg",
         altText: "Stretch Denim Shorts Front View",
       },
     ],
@@ -701,8 +689,7 @@ const productData = [
     name: "Culottes",
     description:
       "Wide-leg culottes with a flattering high waist and cropped length. The perfect blend of comfort and style for any casual occasion.",
-    price: 50,
-    discountPrice: 45,
+    price: 2000,
     countInStock: 30,
     sku: "BW-W-009",
     category: "Bottom Wear",
@@ -714,7 +701,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=27",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755867258/1_bcf7479c-22d8-460c-93e6-740fd841ee0e_e99mtl.jpg",
         altText: "Culottes Front View",
       },
     ],
@@ -725,8 +712,7 @@ const productData = [
     name: "Classic Pleated Trousers",
     description:
       "Timeless pleated trousers with a tailored fit. A wardrobe essential for workwear or formal occasions.",
-    price: 70,
-    discountPrice: 65,
+    price: 989,
     countInStock: 25,
     sku: "BW-W-010",
     category: "Bottom Wear",
@@ -738,7 +724,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=28",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866983/IMG_4830_mogtta.jpg",
         altText: "Classic Pleated Trousers Front View",
       },
     ],
@@ -749,8 +735,7 @@ const productData = [
     name: "Knitted Cropped Top",
     description:
       "A stylish knitted cropped top with a flattering fitted silhouette. Perfect for pairing with high-waisted jeans or skirts for a casual look.",
-    price: 40,
-    discountPrice: 35,
+    price: 731,
     countInStock: 25,
     sku: "TW-W-001",
     category: "Top Wear",
@@ -762,7 +747,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=29",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866865/il_1588xN.4891473990_3a4f_qkf9om.jpg",
         altText: "Knitted Cropped Top",
       },
     ],
@@ -773,8 +758,7 @@ const productData = [
     name: "Boho Floral Blouse",
     description:
       "Flowy boho blouse with floral patterns, featuring a relaxed fit and balloon sleeves. Ideal for casual summer days.",
-    price: 50,
-    discountPrice: 45,
+    price: 1000,
     countInStock: 30,
     sku: "TW-W-002",
     category: "Top Wear",
@@ -786,7 +770,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=30",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866604/m_wp_66f8a589fe7e2c51aa063e4c_w3hhtj.webp",
         altText: "Boho Floral Blouse",
       },
     ],
@@ -797,8 +781,7 @@ const productData = [
     name: "Casual T-Shirt",
     description:
       "A soft, breathable casual t-shirt with a classic fit. Features a round neckline and short sleeves, perfect for everyday wear.",
-    price: 25,
-    discountPrice: 20,
+    price: 277,
     countInStock: 50,
     sku: "TW-W-003",
     category: "Top Wear",
@@ -810,7 +793,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=31",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866469/51VIsq0nbLL_gp4uyj.jpg",
         altText: "Casual T-Shirt",
       },
     ],
@@ -821,8 +804,7 @@ const productData = [
     name: "Off-Shoulder Top",
     description:
       "An elegant off-shoulder top with ruffled sleeves and a flattering fit. Ideal for adding a touch of femininity to your outfit.",
-    price: 45,
-    discountPrice: 40,
+    price: 1490,
     countInStock: 35,
     sku: "TW-W-004",
     category: "Top Wear",
@@ -834,7 +816,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=32",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866414/off-shoulder-top-769695_heau6b.jpg",
         altText: "Off-Shoulder Top",
       },
     ],
@@ -845,8 +827,7 @@ const productData = [
     name: "Lace-Trimmed Cami Top",
     description:
       "A delicate cami top with lace trim and adjustable straps. The lightweight fabric makes it perfect for layering or wearing alone during warmer weather.",
-    price: 35,
-    discountPrice: 30,
+    price: 500,
     countInStock: 40,
     sku: "TW-W-005",
     category: "Top Wear",
@@ -858,7 +839,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=33",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866306/E89861s2_x1miks.jpg",
         altText: "Lace-Trimmed Cami Top",
       },
     ],
@@ -869,8 +850,7 @@ const productData = [
     name: "Graphic Print Tee",
     description:
       "A trendy graphic print tee with a relaxed fit. Pair it with jeans or skirts for a cool and casual look.",
-    price: 30,
-    discountPrice: 25,
+    price: 404,
     countInStock: 45,
     sku: "TW-W-006",
     category: "Top Wear",
@@ -882,7 +862,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=34",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866211/812rDQa72eL._SY879__xt5kir.jpg",
         altText: "Graphic Print Tee",
       },
     ],
@@ -893,8 +873,7 @@ const productData = [
     name: "Ribbed Long-Sleeve Top",
     description:
       "A cozy ribbed long-sleeve top that offers comfort and style. Perfect for layering during cooler months.",
-    price: 55,
-    discountPrice: 50,
+    price: 375,
     countInStock: 30,
     sku: "TW-W-007",
     category: "Top Wear",
@@ -906,7 +885,11 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=35",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866120/61RhTvySu1L._SY741__yfrhvj.jpg",
+        altText: "Ribbed Long-Sleeve Top",
+      },
+      {
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866144/61fsKXKyxtL._SX679__rnlayo.jpg",
         altText: "Ribbed Long-Sleeve Top",
       },
     ],
@@ -917,8 +900,7 @@ const productData = [
     name: "Ruffle-Sleeve Blouse",
     description:
       "A lightweight ruffle-sleeve blouse with a flattering fit. Perfect for a feminine touch to any outfit.",
-    price: 45,
-    discountPrice: 40,
+    price: 899,
     countInStock: 20,
     sku: "TW-W-008",
     category: "Top Wear",
@@ -930,7 +912,11 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=36",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866012/4013-RamaGreen-koel-blouse-front_zcg2j2.jpg",
+        altText: "Ruffle-Sleeve Blouse",
+      },
+      {
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755866056/4013-RamaGreen-koel-blouse-back_d2bucn.jpg",
         altText: "Ruffle-Sleeve Blouse",
       },
     ],
@@ -941,8 +927,7 @@ const productData = [
     name: "Classic Button-Up Shirt",
     description:
       "A versatile button-up shirt that can be dressed up or down. Made from soft fabric with a tailored fit, it's perfect for both casual and formal occasions.",
-    price: 60,
-    discountPrice: 55,
+    price: 500,
     countInStock: 25,
     sku: "TW-W-009",
     category: "Top Wear",
@@ -954,7 +939,7 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=37",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755865922/71VmY_crdgL._SX679__q5zphy.jpg",
         altText: "Classic Button-Up Shirt",
       },
     ],
@@ -965,8 +950,7 @@ const productData = [
     name: "V-Neck Wrap Top",
     description:
       "A chic v-neck wrap top with a tie waist. Its elegant style makes it perfect for both casual and semi-formal occasions.",
-    price: 50,
-    discountPrice: 45,
+    price: 680,
     countInStock: 30,
     sku: "TW-W-010",
     category: "Top Wear",
@@ -978,7 +962,11 @@ const productData = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=38",
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755865809/-473Wx593H-466248943-seagreen-MODEL_x9pjbg.avif",
+        altText: "V-Neck Wrap Top",
+      },
+      {
+        url: "https://res.cloudinary.com/djvwozxjo/image/upload/v1755865833/-473Wx593H-466248943-seagreen-MODEL3_u0pj4c.avif",
         altText: "V-Neck Wrap Top",
       },
     ],

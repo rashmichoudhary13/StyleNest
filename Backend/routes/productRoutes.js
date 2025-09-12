@@ -13,7 +13,6 @@ router.post("/", requireAuth, requireAdmin, async (req, res) => {
       name,
       description,
       price,
-      discountPrice,
       countInStock,
       category,
       brand,
@@ -35,7 +34,6 @@ router.post("/", requireAuth, requireAdmin, async (req, res) => {
       name,
       description,
       price,
-      discountPrice,
       countInStock,
       category,
       brand,
@@ -71,7 +69,6 @@ router.put("/:id", requireAuth, requireAdmin, async (req, res) => {
       name,
       description,
       price,
-      discountPrice,
       countInStock,
       category,
       brand,
@@ -97,7 +94,6 @@ router.put("/:id", requireAuth, requireAdmin, async (req, res) => {
       product.name = name || product.name;
       product.description = description || product.description;
       product.price = price || product.price;
-      product.discountPrice = discountPrice || product.discountPrice;
       product.countInStock = countInStock || product.countInStock;
       product.category = category || product.category;
       product.brand = brand || product.brand;
@@ -265,7 +261,7 @@ router.get("/best-seller", async(req, res) => {
 // @access public
 router.get("/new-arrivals", async (req, res) => {
   try {
-    const newArrivals = await Product.find().sort({ createdAt: -1 }).limit(8);
+    const newArrivals = await Product.find().sort({ createdAt: -1 }).limit(20);
     res.json(newArrivals)
   } catch (error) {
     console.error(error);

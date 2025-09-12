@@ -26,7 +26,7 @@ export const createProduct = createAsyncThunk(
     "adminProducts/createProduct",
     async ({productData, token}) => {
         const responst = await axios.post(
-            `${import.meta.env.VITE_BACKEND_URL}/api/admin/products}`,
+            `${import.meta.env.VITE_BACKEND_URL}/api/admin/products`,
             productData,
             {
                 headers: {
@@ -44,7 +44,7 @@ export const updateProduct = createAsyncThunk(
   async ({ id, productData, token }, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/admin/products/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/products/${id}`,
         productData,
         {
           headers: {
@@ -66,7 +66,7 @@ export const deleteProduct = createAsyncThunk(
     async ({id, token}, { rejectWithValue }) => {
         try {
         await axios.delete(
-            `${import.meta.env.VITE_BACKEND_URL}/api/admin/products/${id}`,
+            `${import.meta.env.VITE_BACKEND_URL}/api/products/${id}`,
             {
             headers: {
                 Authorization: `Bearer ${token}`,

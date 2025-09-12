@@ -1,8 +1,23 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import {FaBoxOpen, FaClipboardList, FaSignOutAlt, FaStore, FaUser} from 'react-icons/fa'
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import {FaBoxOpen, FaClipboardList, FaSignOutAlt, FaStore, FaUser} from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import {logout} from "../../redux/slice/authSlice";
+import {clearCart} from "../../redux/slice/cartSlice";
+import { useClerk } from '@clerk/clerk-react';
+import { persistor } from "../../redux/store"; 
 
 const AdminSidebar = () => {
+    const dispatch = useDispatch();
+    const { signOut } = useClerk();
+
+    const handleLogOut = async () => {
+        dispatch(logout());
+        await signOut();
+        dispatch(clearCart());
+        persistor.purge();  
+    };
+
     return (
         <div className='p-6'>
             <div className='mb-6'>
@@ -44,7 +59,7 @@ const AdminSidebar = () => {
             </nav>
 
             <div className='mt-6'>
-                <button 
+                <button onClick={handleLogOut}
                 className='w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded flex items-center justify-center space-x-2'>
                     <FaSignOutAlt /> 
                     <span> Logout </span>

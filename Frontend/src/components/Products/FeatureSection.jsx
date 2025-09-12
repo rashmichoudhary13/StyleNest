@@ -1,5 +1,6 @@
 import React from 'react'
 import {HiShoppingBag, HiArrowPathRoundedSquare, HiOutlineCreditCard} from 'react-icons/hi2';
+import { FaRupeeSign } from "react-icons/fa";
 
 const FeatureSection = () => {
   return (
@@ -12,7 +13,7 @@ const FeatureSection = () => {
                 </div>
                 <h4 className='tracking-lighter mb-2'> FREE INTERNATIONAL SHIPPING</h4>
                 <p className='text-gray-600 text-sm tracking-tighter'>
-                    On all orders over $100.00
+                    On all orders over <FaRupeeSign className="inline text-gray-700" />500.00
                 </p>
             </div>
 

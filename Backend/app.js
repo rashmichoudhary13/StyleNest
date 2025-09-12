@@ -22,6 +22,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 app.use(ClerkExpressWithAuth());
+app.use(express.static("public"));
+
 
 const PORT = process.env.PORT || 3000;
 

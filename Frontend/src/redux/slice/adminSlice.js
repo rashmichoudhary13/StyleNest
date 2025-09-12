@@ -6,31 +6,8 @@ export const fetchusers = createAsyncThunk(
     "admin/fetchUsers",
     async (token, { rejectWithValue }) => {
         try {
-            const token = await getToken();
             const response = await axios.get(
                 `${import.meta.env.VITE_BACKEND_URL}/api/admin/users`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-            return response.data;
-        } catch (error) {
-            return rejectWithValue(error.response.data);
-        }
-    }
-);
-
-// Add the create user action
-export const createUser = createAsyncThunk(
-    "admin/adduser",
-    async ({userData, token}, { rejectWithValue }) => {
-        try {
-            const token = await getToken();
-            const response = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}/api/admin/users`,
-                userData,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -49,17 +26,16 @@ export const updateUser = createAsyncThunk(
     "admin/updateUser",
     async ({ id, name, email, role, token }, { rejectWithValue }) => {
         try {
-            const token = await getToken();
             const response = await axios.put(
                 `${import.meta.env.VITE_BACKEND_URL}/api/admin/users/${id}`,
-                {naem, email, role},
+                {name, email, role},
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 }
             );
-            return response.data;
+            return response.data.user;
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
@@ -71,7 +47,6 @@ export const deleteUser = createAsyncThunk(
     "admin/deleteUser",
     async ({id, token}, { rejectWithValue }) => {
         try {
-            const token = await getToken();
             await axios.delete(
                 `${import.meta.env.VITE_BACKEND_URL}/api/admin/users/${id}`,
                 {
@@ -107,20 +82,6 @@ const adminSlice = createSlice({
             .addCase(fetchusers.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message;
-            })
-
-            // Create user 
-            .addCase(createUser.pending, (state) => {
-                state.loading = true;
-                state.error = null;
-            })
-            .addCase(createUser.fulfilled, (state, action) => {
-                state.loading = false;
-                state.users.push(action.payload.user);
-            })
-            .addCase(createUser.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload.message;
             })
 
             // Update user

@@ -17,35 +17,6 @@ router.get("/", requireAuth, requireAdmin, async (req, res) => {
   }
 });
 
-// @route POST /api/admin/users
-// @desc Create a new user (admin only)
-// @access Private/Admin
-router.post("/", requireAuth, requireAdmin, async (req, res) => {
-    const { email, password, role, name, clerkUserId } = req.body;
-    
-    try {
-        let user = await userModel.findOne({ email });
-
-        if (user) {
-            return res.status(400).json({ message: "User already exists" });
-        }
-
-        user = new userModel({
-            name,
-            email,
-            password,
-            role: role || "customer",
-            clerkUserId: clerkUserId || null,
-        });
-
-        await user.save();
-        res.status(201).json({ message: "User created successfully", user});
-    } catch (error) {
-        console.error("Error creating user:", error);
-        res.status(500).json({ message: "Internal server error" });
-    }
-})
-
 // @route PUT /api/admin/users/:id
 // @desc Update info (admin only) - Name, email and role
 // @access Private/Admin

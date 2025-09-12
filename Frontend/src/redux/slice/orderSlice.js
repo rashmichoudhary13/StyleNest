@@ -6,9 +6,8 @@ export const fetchUserOrders = createAsyncThunk(
     "order/fetchUserOrders",
     async (token, { rejectWithValue }) => {
         try {
-            const token = await getToken();
             const response = await axios.get(
-                `${import.meta.env.VITE_BACKEND_URL}/api/orders`,
+                `${import.meta.env.VITE_BACKEND_URL}/api/orders/my-orders`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -28,7 +27,6 @@ export const fetchOrderDetails = createAsyncThunk(
     "order/fetchOrderDetails",
     async ({orderId, token}, { rejectWithValue }) => {
         try {
-            const token = await getToken();
             const response = await axios.get(
                 `${import.meta.env.VITE_BACKEND_URL}/api/orders/${orderId}`,
                 {

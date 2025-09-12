@@ -1,41 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { useAuth } from "@clerk/clerk-react";
+import { fetchOrderDetails } from '../redux/slice/orderSlice';
+import { FaRupeeSign } from "react-icons/fa";
 
 export const OrderDetailsPage = () => {
   const { id } = useParams();
-  const [orderDetails, setOrderDetails] = useState(null);
+  const dispatch = useDispatch();
+  const {orders, orderDetails, loading, error} = useSelector((state) => state.orders);
+  const { getToken } = useAuth();
 
   useEffect(() => {
-    const mockOrderDetails = {
-      _id: id,
-      createdAt: new Date(),
-      isPaid: true,
-      isDelivered: false,
-      paymentMethod: "PayPal",
-      shippingMethod: "Standard",
-      shippingAddress: {
-        city: "New York",
-        country: "USA"
-      },
-      orderItems: [
-        {
-          productId: "1",
-          name: "Jacket",
-          price: 120,
-          quantity: 1,
-          image: "https://picsum.photos/150?random=1",
-        },
-        {
-          productId: "2",
-          name: "Jacket",
-          price: 120,
-          quantity: 1,
-          image: "https://picsum.photos/150?random=2",
-        },
-      ],
-    };
-    setOrderDetails(mockOrderDetails)
-  }, [id]);
+    const getOrder = async () => {
+      const token = await getToken();
+      dispatch(fetchOrderDetails({orderId: id, token}))
+    }
+    getOrder();
+  }, [getToken, dispatch]);
 
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-6">
@@ -75,7 +57,6 @@ export const OrderDetailsPage = () => {
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-2">Shipping Info</h4>
-              <p>Shipping Method: {orderDetails.shippingMethod}</p>
               <p>
                 Address:{" "}
                 {` ${orderDetails.shippingAddress.city}, ${orderDetails.shippingAddress.country}`}
@@ -106,9 +87,9 @@ export const OrderDetailsPage = () => {
                         {item.name}
                       </Link>
                     </td>
-                    <td className='py-2 px-4'> ${item.price} </td>
-                    <td className='py-2 px-4'> ${item.quantity} </td>
-                    <td className='py-2 px-4'> ${item.price * item.quantity} </td>
+                    <td className='py-2 px-4'> <FaRupeeSign className="inline text-gray-700" />{item.price} </td>
+                    <td className='py-2 px-4'> {item.quantity} </td>
+                    <td className='py-2 px-4'> <FaRupeeSign className="inline text-gray-700" />{item.price * item.quantity} </td>
                   </tr>
                 ))}
               </tbody>

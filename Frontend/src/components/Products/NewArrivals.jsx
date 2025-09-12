@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
+import { FaRupeeSign } from "react-icons/fa";
 import {Link} from 'react-router-dom';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -62,7 +63,7 @@ const NewArrivals = () => {
                             <div className='absolute bottom-0 left-0 right-0 bg-opacity-50 backdrop-blur-md text-white p-5'>
                                 <Link to={`/product/${product._id}`} className="block">
                                 <h4 className='font-medium'> {product.name} </h4>
-                                <p className='mt-1'> ${product.price} </p>
+                                <p className='mt-1'> <FaRupeeSign className="inline text-white" />{product.price} </p>
                                 </Link>
                             </div>
                         </SwiperSlide>

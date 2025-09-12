@@ -20,6 +20,7 @@ const seedData = async() => {
         // Create a default admin user
         const createdUser = await userModel.create({
             clerkUserId: process.env.CLERK_ADMIN_USER_ID,
+            name: "Rakesh Kumar",
             email: process.env.ADMIN_EMAIL,
             role: "admin",
         })

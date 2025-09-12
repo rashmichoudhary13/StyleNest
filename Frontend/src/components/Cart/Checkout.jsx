@@ -1,28 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PaypalButton from './PaypalButton';
-
-const cart = {
-    products: [{
-        name: "Stylish Jacket",
-        size: "M",
-        color: "Black",
-        price: 120,
-        image: "https://picsum.photos/150?random=1",
-    }, {
-        name: "Casual Sneakers",
-        size: "42",
-        color: "White",
-        price: 75,
-        image: "https://picsum.photos/150?random=2",
-    },],
-    totalPrice: 195,
-};
+import { useUser } from "@clerk/clerk-react";
+import { useDispatch, useSelector } from "react-redux";
+import { useAuth } from "@clerk/clerk-react";
+import axios from 'axios';
+import { createCheckoutSession } from "../../redux/slice/checkoutSlice"
+import { FaRupeeSign } from "react-icons/fa";
 
 const Checkout = () => {
+    const { user } = useUser();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { cart, loading, error } = useSelector((state) => state.cart);
+    const { getToken } = useAuth()
+    console.log("checkout cart: ", cart)
 
-    const [CheckoutId, setCheckoutId] = useState(null);
+    const [checkoutId, setCheckoutId] = useState(null);
     const [shippingAddress, setShippingAddress] = useState({
         firstName: "",
         lastName: "",
@@ -33,14 +27,81 @@ const Checkout = () => {
         phone: "",
     });
 
-    const handleCreateCheckout = (e) => {
+    useEffect(() => {
+        if (!cart || !cart.products || cart.products.length === 0) {
+            navigate("/");
+        }
+    }, [cart, navigate]);
+
+    useEffect(() => {
+        console.log("checkoutId in PaypalButton render:", checkoutId);
+    }, [checkoutId]);
+
+    const handleCreateCheckout = async (e) => {
         e.preventDefault();
-        setCheckoutId(123)
+        const token = await getToken();
+        if (cart && cart.products.length > 0) {
+
+            const res = await dispatch(
+                createCheckoutSession({
+                    checkoutdata: {
+                        checkoutItems: cart.products,
+                        shippingAddress,
+                        paymentMethod: "Paypal",
+                        totalPrice: cart.totalPrice,
+                    },
+                    token,
+                })
+            );
+            if (res.payload && res.payload._id) {
+                setCheckoutId(res.payload._id); // set Checkout id if the payment is successful
+            }
+        }
+    };
+
+    const handlePaymentSuccess = async (details) => {
+        const token = await getToken();
+        try {
+            console.log("checkoutId before payment success:", checkoutId);
+            const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/pay`,
+                { paymentStatus: "Paid", paymentDetails: details },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    },
+                }
+            );
+
+            await handleFinalizeCheckout(checkoutId); // Finalize checkout if payment is successful.
+
+        } catch (error) {
+            console.error(error);
+        }
     }
 
-    const handlePaymentSuccess = (details) => {
-        console.log("payment success")
-        navigate("/order-confirmation")
+    const handleFinalizeCheckout = async (checkoutId) => {
+        const token = await getToken();
+        try {
+            const response = await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/finalize`,
+                {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    },
+                }
+            )
+            navigate("/order-confirmation");
+
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    if (loading) return <p> Loading cart ... </p>;
+    if (error) return <p> Error: {error} </p>;
+    if (!cart || !cart.products || cart.products.length === 0) {
+        return <p> Your cart is empty. </p>;
     }
 
     return (
@@ -58,7 +119,7 @@ const Checkout = () => {
                         <input
                             type="email"
                             name="email"
-                            value="xyz@gmail.com"
+                            value={user ? user?.primaryEmailAddress.emailAddress : ""}
                             disabled
                             className="mt-2 w-full border rounded px-3 py-2"
                         />
@@ -133,7 +194,7 @@ const Checkout = () => {
                         <input
                             type="text"
                             name="address"
-                            placeholder="Address"
+                            placeholder="Country"
                             value={shippingAddress.country}
                             onChange={(e) => setShippingAddress({ ...shippingAddress, country: e.target.value })}
                             className="w-full border rounded px-3 py-2 "
@@ -146,7 +207,7 @@ const Checkout = () => {
                         <input
                             type="text"
                             name="address"
-                            placeholder="Address"
+                            placeholder="Phone"
                             value={shippingAddress.phone}
                             onChange={(e) => setShippingAddress({ ...shippingAddress, phone: e.target.value })}
                             className="w-full border rounded px-3 py-2 "
@@ -156,7 +217,7 @@ const Checkout = () => {
 
 
                     <div>
-                        {!CheckoutId ? (
+                        {!checkoutId ? (
                             <button
                                 type="submit"
                                 className="w-full bg-black text-white py-3 rounded hover:bg-gray-900"
@@ -165,8 +226,9 @@ const Checkout = () => {
                             </button>
                         ) : (
                             <div>
+                                Pay with Paypal...
                                 {/* Paypal component   */}
-                                <PaypalButton amount={100} onSuccess={handlePaymentSuccess} onError={() => alert("Payment failed.")} />
+                                <PaypalButton amount={Number(cart.totalPrice.toFixed(2))} onSuccess={handlePaymentSuccess} onError={() => alert("Payment failed.")} />
                             </div>
                         )}
                     </div>
@@ -187,14 +249,14 @@ const Checkout = () => {
                                     <p className='text-gray-500'> {product.color} </p>
                                 </div>
                             </div>
-                            <p className='text-xl'> ${product.price?.toLocaleString()} </p>
+                            <p className='text-xl'> <FaRupeeSign className="inline text-gray-700" />{product.price?.toLocaleString()} </p>
                         </div>
                     ))}
                 </div>
 
                 <div className='flex justify-between items-center text-lg mb-4'>
                     <p>Subtotal</p>
-                    <p>${cart.totalPrice?.toLocaleString()}</p>
+                    <p><FaRupeeSign className="inline text-gray-700" />{cart.totalPrice?.toLocaleString()}</p>
                 </div>
                 <div className='flex justify-between items-center text-lg'>
                     <p> Shipping </p>
@@ -202,7 +264,7 @@ const Checkout = () => {
                 </div>
                 <div className='flex justify-between items-center text-lg mt-4 border-t pt-4'>
                     <p>Total</p>
-                    <p>${cart.totalPrice?.toLocaleString()} </p>
+                    <p><FaRupeeSign className="inline text-gray-700" />{cart.totalPrice?.toLocaleString()} </p>
                 </div>
             </div>
         </div>

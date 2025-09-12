@@ -88,7 +88,6 @@ const adminOrderSlice = createSlice({
             state.totalSales = action.payload.reduce((acc, order) => {
                 return acc + order.totalPrice;
             }, 0);
-            state.totalSales = totalSales;
         })
         .addCase(fetchAllOrders.rejected, (state, action) => {
             state.loading = false;

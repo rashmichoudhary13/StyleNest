@@ -15,7 +15,7 @@ router.get("/my-orders", requireAuth, async (req, res) => {
         const orders = await Order.find({ user: req.user.id }).sort({ createdAt: -1 }); // sort by most recent orders
          console.log("3")
         if (!orders || orders.length === 0) {
-            return res.status(404).json({ message: "No orders found" });
+            return res.json({ message: "No orders found" });
         }
          console.log("4")
         res.status(200).json(orders);

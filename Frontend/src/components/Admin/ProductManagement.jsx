@@ -1,32 +1,51 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-const products = [
-    { _id: "1", name: "Printed Resort Shirt", price: 29.99, sku: "PRNT-RES-004" },
-    { _id: "2", name: "Chino Pants", price: 55.0, sku: "BW-005" },
-    { _id: "3", name: "Cargo Pants", price: 50.0, sku: "BW-008" },
-    { _id: "4", name: "Long-Sleeve Thermal Tee", price: 27.99, sku: "LST-THR-009" },
-    { _id: "5", name: "Pleated Midi Skirt", price: 55.0, sku: "BW-W-004" },
-    { _id: "6", name: "Graphic Print Tee", price: 30.0, sku: "TW-W-006" },
-    { _id: "7", name: "Ribbed Long-Sleeve Top", price: 55.0, sku: "TW-W-007" },
-    { _id: "8", name: "Slim-Fit Stretch Shirt", price: 29.99, sku: "SLIM-SH-002" },
-    { _id: "9", name: "Cargo Joggers", price: 45.0, sku: "BW-002" }
-];
-
+import { useAuth } from '@clerk/clerk-react';
+import { deleteProduct, fetchAdminProducts } from '../../redux/slice/adminProductSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { FaRupeeSign } from "react-icons/fa";
+import { HiMagnifyingGlass } from 'react-icons/hi2';
 
 const ProductManagement = () => {
+    const dispatch = useDispatch();
+    const { products, loading, error } = useSelector((state) => state.adminProducts)
+    const { getToken } = useAuth();
 
-    const handleEdit = (id) => {
-        alert(`Edit product with ID: ${id}`);
+    useEffect(() => {
+        const getProducts = async () => {
+            const token = await getToken();
+            dispatch(fetchAdminProducts(token))
+        }
+        getProducts();
+    }, [dispatch, getToken]);
+
+    const handleDelete = async (id) => {
+        const token = await getToken();
+        if (window.confirm("Are you sure you want to delete the Product?")) {
+            dispatch(deleteProduct({ id, token }))
+        }
     };
 
-    const handleDelete = (id) => {
-        alert(`Delete product with ID: ${id}`);
-    };
+    if (loading) return <p> Loading... </p>
+    if (error) return <p> Error: {error} </p>
 
     return (
         <div className="max-w-6xl mx-auto p-6">
-            <h2 className="text-2xl font-bold mb-6">Product Management</h2>
+            <div className='flex justify-between'>
+                <h2 className="text-2xl font-bold mb-6">Product Management</h2>
+                <div className='relative w-1/2'>
+                    <input type="text"
+                        placeholder='Search'
+                       
+                        className='bg-gray-100  py-2 rounded-lg pl-2 pr-12 focus:outline-none w-full placeholder:text-gray-700' />
+
+                    {/* Search icon  */}
+                    <button type="submit" className='absolute right-2 top-1/2 transform  -translate-y-3/4 text-gray-600 hover:text-gray-800'>
+                        <HiMagnifyingGlass className='h-6 w-6' />
+                    </button>
+                </div>
+            </div>
+
 
             <div className="overflow-x-auto bg-white shadow rounded-lg">
                 <table className="w-full table-auto">
@@ -43,7 +62,7 @@ const ProductManagement = () => {
                             products.map(product => (
                                 <tr key={product._id} className="hover:bg-gray-50">
                                     <td className="px-6 py-4">{product.name}</td>
-                                    <td className="px-6 py-4">${product.price.toFixed(2)}</td>
+                                    <td className="px-6 py-4"><FaRupeeSign className="inline text-gray-700" />{product.price.toFixed(2)}</td>
                                     <td className="px-6 py-4">{product.sku}</td>
                                     <td className="px-6 py-4 space-x-2">
                                         <Link

@@ -1,41 +1,38 @@
-import React, { useState } from "react";
-
-const initialOrders = [
-    {
-        _id: "67540ced3376121b361a0ed0",
-        user: { name: "Admin User" },
-        totalPrice: 199.96,
-        status: "Delivered",
-    },
-    {
-        _id: "67540d3ca67b4a70e434e092",
-        user: { name: "Admin User" },
-        totalPrice: 40,
-        status: "Processing",
-    },
-    {
-        _id: "675bf2c6ca77bd83eefd7a18",
-        user: { name: "Admin User" },
-        totalPrice: 39.99,
-        status: "Processing",
-    },
-    {
-        _id: "675c24b09b88827304bd5cc1",
-        user: { name: "Admin User" },
-        totalPrice: 39.99,
-        status: "Processing",
-    },
-];
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { fetchAllOrders, updateOrderStatus } from "../../redux/slice/adminOrderSlice";
+import { useAuth } from "@clerk/clerk-react";
+import { FaRupeeSign } from "react-icons/fa";
 
 const OrderManagement = () => {
-    const [orders, setOrders] = useState(initialOrders);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { getToken } = useAuth();
 
-    const handleStatusChange = (id, newStatus) => {
-        const updated = orders.map((order) =>
-            order._id === id ? { ...order, status: newStatus } : order
-        );
-        setOrders(updated);
+    const { user } = useSelector((state) => state.auth);
+    const { orders, loading, error } = useSelector((state) => state.adminOrders);
+
+    useEffect(() => {
+        const getOrders = async () => {
+            const token = await getToken();
+
+            if(!user || user.role !== "admin"){
+                navigate("/");
+            } else {
+                dispatch(fetchAllOrders(token));
+            }
+        }
+        getOrders();
+    },[dispatch, user, navigate, getToken]);
+
+    const handleStatusChange = async (id, newStatus) => {
+        const token = await getToken();
+        dispatch(updateOrderStatus({id, status: newStatus, token}))
     };
+
+    if (loading) return <p> Loading... </p>
+    if (error) return <p> Error: {error} </p>
 
     return (
         <div className="max-w-7xl mx-auto mt-10 p-6 ">
@@ -57,7 +54,7 @@ const OrderManagement = () => {
                                 <tr key={order._id} className="text-sm text-gray-700">
                                     <td className="py-2 px-4 border-b">#{order._id}</td>
                                     <td className="py-2 px-4 border-b">{order.user.name}</td>
-                                    <td className="py-2 px-4 border-b">${order.totalPrice}</td>
+                                    <td className="py-2 px-4 border-b"><FaRupeeSign className="inline text-gray-700" />{order.totalPrice.toFixed(2)}</td>
                                     <td className="py-2 px-4 border-b">
                                         <select
                                             value={order.status}

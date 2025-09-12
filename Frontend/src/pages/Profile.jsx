@@ -1,12 +1,20 @@
 import React from 'react'
 import MyOrdersPage from './MyOrdersPage'
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
+import { logout } from '../redux/slice/authSlice';
+import { clearCart } from '../redux/slice/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const Profile = () => {
   const { signOut } = useClerk();
   const { user } = useUser();
-  console.log(user)
-
+  const dispatch = useDispatch();
+  
+  const handleSignOut = async () => {
+   dispatch(logout());
+   await signOut();
+   dispatch(clearCart());
+  }
   return (
     <div className='min-h-screen flex flex-col'>
       <div className='flex-grow container mx-auto p-4 md:p-6'>
@@ -20,7 +28,7 @@ const Profile = () => {
               <h1 className='text-2xl md:text-3xl font-bold'>{user && user.firstName}</h1>
             </div>
             <p className='text-lg text-gray-600 mb-4'> {user && user.emailAddresses[0].emailAddress} </p>
-            <button onClick={() => signOut()} className='w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600'>Logout</button>
+            <button onClick={() => handleSignOut()} className='w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600'>Logout</button>
           </div>
 
           {/* Right Section: Orders table  */}

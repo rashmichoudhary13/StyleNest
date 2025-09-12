@@ -18,6 +18,8 @@ cloudinary.config({
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+// @route GET /api/upload
+// @desc Upload images on cloudinary
 router.post("/", upload.single("image"), async(req, res) => {
     try {
         if(!req.file) {

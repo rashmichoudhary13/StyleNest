@@ -9,7 +9,7 @@ const router = express.Router();
 // @access Private/Admin
 router.get("/", requireAuth, requireAdmin, async (req, res) => {
   try {
-    const orders = await Order.find({}).populate('user', 'email');
+    const orders = await Order.find({}).populate('user', 'email name');
     res.status(200).json(orders);
   } catch (error) {
     console.error("Error fetching orders:", error);
@@ -22,7 +22,7 @@ router.get("/", requireAuth, requireAdmin, async (req, res) => {
 // @access Private/Admin
 router.put("/:id", requireAuth, requireAdmin, async (req, res) => {
   try {
-    const order = await Order.findById(req.params.id);
+    const order = await Order.findById(req.params.id).populate('user', 'email name');
     if (order) {
       order.status = req.body.status || order.status;
       order.isDelivered = req.body.status === "Delivered" ? true : order.isDelivered;
