@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import {FaBoxOpen, FaClipboardList, FaSignOutAlt, FaStore, FaUser} from 'react-icons/fa';
+import {FaBoxOpen, FaClipboardList, FaSignOutAlt, FaStore, FaUser, FaPlus} from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import {logout} from "../../redux/slice/authSlice";
 import {clearCart} from "../../redux/slice/cartSlice";
@@ -48,6 +48,13 @@ const AdminSidebar = () => {
                     : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 flex items-center space-x-2"}>
                     <FaClipboardList />
                     <span> Orders </span>
+                </NavLink>
+
+                <NavLink to="/admin/add" className={({ isActive }) => isActive ?
+                    "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2" 
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 flex items-center space-x-2"}>
+                    <FaPlus/> 
+                    <span> Add </span>
                 </NavLink>
 
                 <NavLink to="/" className={({ isActive }) => isActive ?

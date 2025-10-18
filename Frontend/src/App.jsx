@@ -18,6 +18,7 @@ import ProductManagement from "./components/Admin/ProductManagement";
 import EditProductPage from "./components/Admin/EditProductPage";
 import OrderManagement from "./components/Admin/OrderManagement";
 import ProtectedRoute from "./components/Common/ProtectedRoute";
+import AddProductPage from "./components/Admin/AddProductPage";
 
 export default function App() {
   return (
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="products" element={<ProductManagement />} />
           <Route path="products/:id/edit" element={<EditProductPage />} />
           <Route path="orders" element={<OrderManagement />} />
+          <Route path="add" element={<AddProductPage />} />
         </Route>
       </Routes>
     </>

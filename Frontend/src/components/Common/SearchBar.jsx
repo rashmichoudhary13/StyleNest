@@ -20,6 +20,7 @@ const SearchBar = () => {
         dispatch(fetchProductsByFilters({ search: searchTerm }))
         navigate(`/collections/all?search=${searchTerm}`)
         setIsOpen(false)
+        setSearchTerm('');
     }
 
     return (

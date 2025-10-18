@@ -56,7 +56,7 @@ router.post("/", requireAuth, requireAdmin, async (req, res) => {
     res.status(201).json(createdProduct);
   } catch (error) {
     console.error(error);
-    res.status(500).send("Server Error");
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -121,7 +121,7 @@ router.put("/:id", requireAuth, requireAdmin, async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    res.statusCode(500).send("Server Error");
+    res.status(500).send("Server Error");
   }
 });
 

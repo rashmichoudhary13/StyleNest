@@ -25,15 +25,15 @@ router.post("/user-created", async (req, res) => {
     user = new userModel({ clerkUserId, email, name });
     await user.save();
 
-    res.status(201).json({
-      user: {
-        _id: user._id,
-        clerkUserId: user.clerkUserId,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
-    });
+    // res.status(201).json({
+    //   user: {
+    //     _id: user._id,
+    //     clerkUserId: user.clerkUserId,
+    //     name: user.name,
+    //     email: user.email,
+    //     role: user.role,
+    //   },
+    // });
   } catch (error) {
     console.log(error);
     res.status(500).send("Server Error");

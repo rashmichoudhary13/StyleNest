@@ -2,20 +2,20 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { fetchAllOrders, updateOrderStatus } from "../../redux/slice/adminOrderSlice";
-import { useAuth } from "@clerk/clerk-react";
+import { useSession } from "@clerk/clerk-react";
 import { FaRupeeSign } from "react-icons/fa";
 
 const OrderManagement = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { getToken } = useAuth();
+    const { session } = useSession();
 
     const { user } = useSelector((state) => state.auth);
     const { orders, loading, error } = useSelector((state) => state.adminOrders);
 
     useEffect(() => {
         const getOrders = async () => {
-            const token = await getToken();
+            const token = await session.getToken();
 
             if(!user || user.role !== "admin"){
                 navigate("/");
@@ -24,10 +24,10 @@ const OrderManagement = () => {
             }
         }
         getOrders();
-    },[dispatch, user, navigate, getToken]);
+    },[dispatch, user, navigate]);
 
     const handleStatusChange = async (id, newStatus) => {
-        const token = await getToken();
+        const token = await session.getToken();
         dispatch(updateOrderStatus({id, status: newStatus, token}))
     };
 

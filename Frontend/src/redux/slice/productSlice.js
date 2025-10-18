@@ -140,7 +140,7 @@ const productSlice = createSlice({
       })
 
       // Handle fetching single product details
-         .addCase(fetchProductDetails.pending, (state) => {
+      .addCase(fetchProductDetails.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
@@ -154,7 +154,7 @@ const productSlice = createSlice({
       })
 
       // Handle updating product 
-         .addCase(updateProduct.pending, (state) => {
+      .addCase(updateProduct.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
@@ -175,7 +175,7 @@ const productSlice = createSlice({
       })
 
       // handle similar products
-         .addCase(fetchSimilarProducts.pending, (state) => {
+      .addCase(fetchSimilarProducts.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
