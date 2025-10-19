@@ -19,6 +19,7 @@ import adminReducer from "./slice/adminSlice";
 import adminProductReducer from "./slice/adminProductSlice";
 import adminOrderReducer from "./slice/adminOrderSlice";
 import authReducer from "./slice/authSlice";
+import subscribeReducer from "./slice/subscribeSlice";
 
 const authPersist = {
   key: "auth",
@@ -35,6 +36,7 @@ const rootReducer = combineReducers({
   admin: adminReducer,
   adminProducts: adminProductReducer,
   adminOrders: adminOrderReducer,
+  subscribe: subscribeReducer,
 });
 
 const store = configureStore({

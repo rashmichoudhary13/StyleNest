@@ -1,11 +1,29 @@
-import React from 'react'
+import { useState } from 'react';
 import { TbBrandMeta } from 'react-icons/tb';
 import { IoLogoInstagram } from 'react-icons/io';
 import { RiTwitterXLine } from 'react-icons/ri';
 import { FiPhoneCall } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { SubscribeEmail } from "../../redux/slice/subscribeSlice";
+import { toast } from 'sonner';
 
 const Footer = () => {
+    const [email, setEmail] = useState("");
+    const dispatch = useDispatch();
+    const {message, error, loading} = useSelector((state) => state.subscribe);
+
+    const handleSubscribe = (e) => {
+        e.preventDefault();
+        if(!email) return toast.error("Enter a email");
+        dispatch(SubscribeEmail(email));
+        setEmail("");
+    }
+
+    if(message){
+        toast.success(message, { duration: 1000 });
+    }
+
     return (
         <footer className="bg-white border-t text-gray-700 px-8 py-12">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -18,10 +36,12 @@ const Footer = () => {
                     <form className="flex">
                         <input
                             type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
                             className="border px-3 py-2 w-full rounded-l-md text-sm"
                         />
-                        <button className="bg-black text-white px-4 py-2 rounded-r-md text-sm">Subscribe</button>
+                        <button onClick={handleSubscribe} className="bg-black text-white px-4 py-2 rounded-r-md text-sm">Subscribe</button>
                     </form>
                 </div>
 
