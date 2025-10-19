@@ -17,10 +17,11 @@ import adminOrderRoutes from "./routes/adminOrderRoutes.js"
 import { ClerkExpressWithAuth } from '@clerk/clerk-sdk-node';
 
 var app = express();
+const allowedOrigins = process.env.EXPRESS_FRONTEND_URL;
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({origin: allowedOrigins, credentials: true}))
 app.use(ClerkExpressWithAuth());
 app.use(express.static("public"));
 
