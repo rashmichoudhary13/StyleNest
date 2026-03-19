@@ -2,6 +2,8 @@
 A modern e-commerce platform for browsing, selecting, and purchasing clothes seamlessly.
 This project includes a dynamic product listings, cart management, authentication, admin dasboard and a responsive shopping experience.
 
+🔗 Live Demo: https://stylenest-htgu.onrender.com/
+
 # Feature
 ## User Feature
 - Browse clothing products with images, sizes, prices & details.
