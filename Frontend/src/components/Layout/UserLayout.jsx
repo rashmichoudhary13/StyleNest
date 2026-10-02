@@ -40,7 +40,7 @@ const UserLayout = () => {
   useEffect(() => {
     // Merge guest cart after login
     const cartMerge = async () => {
-      console.log("userlayout guestid: ", guestId)
+      // console.log("userlayout guestid: ", guestId)
       if (hadGuestProductsOnLogin.current && authUser && guestId) {
         const token = await getToken();
         console.log("userLayout token: ", token);

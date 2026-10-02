@@ -52,6 +52,9 @@ const Navbar = () => {
           <Link to='collections/all?category=Bottom Wear' className="text-gray-700 hover:text-black text-sm font-medium uppercase" >
             Bottom Wear
           </Link>
+          <Link to='collections/all?category=Accessories' className="text-gray-700 hover:text-black text-sm font-medium uppercase" >
+            Accessories
+          </Link>
         </div>
 
         {/* Right icons  */}

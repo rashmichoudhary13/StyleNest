@@ -20,7 +20,7 @@ const ProductGrid = ({products, loading, error}) => {
                 <div className='bg-white p-2 md:p-4 rounded-lg'>
                     <div className='w-full h-60 md:h-96 mb-4'>
                         <img src={product.images[0].url} alt="Product Images" 
-                        className='w-full h-full object-cover rounded-lg'/>
+                        className='w-full h-full object-cover rounded-lg' loading="lazy"/>
                     </div>
                     <h3 className='text-sm mb-2'> {product.name} </h3>
                     <p className='text-gray-500 font-medium text-sm tracking-tighter'>
