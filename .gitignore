@@ -5,3 +5,8 @@ Frontend/node_modules/
 #ignore env files
 Backend/.env
 Frontend/.env
+
+walk
+order_and_admin_walkthrough.md
+walkthrough_interview_guide.md
+walkthrough_interview_guide2

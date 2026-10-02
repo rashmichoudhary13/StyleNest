@@ -28,7 +28,7 @@ const requireAdmin = async (req, res, next) => {
     }
 
     const user = await User.findOne({ clerkUserId });
-    console.log("user:", user);
+    // console.log("user:", user);
 
     if (!user || user.role !== "admin") {
       return res.status(403).json({ message: "Not authorized as admin" });

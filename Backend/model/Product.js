@@ -103,38 +103,11 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+productSchema.index({brand: 1});
+
 const Product = mongoose.model("Product", productSchema);
 
 export default Product;
 
 
 
-//  {
-//     "name": "Classic Oxford Button-Down Shirt",
-//     "description":
-//       "This classic Oxford shirt is tailored for a polished yet casual look. Crafted from high-quality cotton, it features a button-down collar and a comfortable, slightly relaxed fit. Perfect for both formal and casual occasions, it comes with long sleeves, a button placket, and a yoke at the back. The shirt is finished with a gently rounded hem and adjustable button cuffs.",
-//     "price": 39.99,
-//     "discountPrice": 34.99,
-//     "countInStock": 20,
-//    "sku": "OX-SH-001",
-//     "category": "Top Wear",
-//     "brand": "Urban Threads",
-//     "sizes": ["S", "M", "L", "XL", "XXL"],
-//     "colors": ["Red", "Blue", "Yellow"],
-//     "collections": "Business Casual",
-//     "material": "Cotton",
-//     "gender": "Men",
-//     "images": [
-//       {
-//         "url": "https://picsum.photos/500/500?random=39",
-//         "altText": "Classic Oxford Button-Down Shirt Front View",
-//       },
-//       {
-//         "url": "https://picsum.photos/500/500?random=40",
-//         "altText": "Classic Oxford Button-Down Shirt Back View",
-//       }
-//     ],
-
-//     "rating": 4.5,
-//     "numReviews": 12
-//   }
